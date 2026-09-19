@@ -6,24 +6,30 @@ import {
   IAnalyticsRepository,
   INotificationRepository
 } from './interfaces/index.js';
-import {
-  MockUserRepository,
-  MockReportRepository,
-  MockCollectionRepository,
-  MockProcessingRepository,
-  MockAnalyticsRepository,
-  MockNotificationRepository
-} from './mock/index.js';
 
-// Central Repository Container
-// In the current Hackathon build, Mock implementations provide realistic in-memory state.
-// When Developer 2 connects Supabase, this container will instantiate SupabaseUserRepository,
-// SupabaseReportRepository, etc., without requiring any changes to Controllers or Services.
-export const userRepository: IUserRepository = new MockUserRepository();
-export const reportRepository: IReportRepository = new MockReportRepository();
-export const collectionRepository: ICollectionRepository = new MockCollectionRepository();
-export const processingRepository: IProcessingRepository = new MockProcessingRepository();
-export const analyticsRepository: IAnalyticsRepository = new MockAnalyticsRepository();
-export const notificationRepository: INotificationRepository = new MockNotificationRepository();
+import { SupabaseUserRepository } from './supabase/userRepository.js';
+import { SupabaseReportRepository } from './supabase/reportRepository.js';
+import { SupabaseCollectionRepository } from './supabase/collectionRepository.js';
+import { SupabaseProcessingRepository } from './supabase/processingRepository.js';
+import { SupabaseAnalyticsRepository } from './supabase/analyticsRepository.js';
+import { SupabaseNotificationRepository } from './supabase/notificationRepository.js';
+
+export const userRepository: IUserRepository =
+  new SupabaseUserRepository();
+
+export const reportRepository: IReportRepository =
+  new SupabaseReportRepository();
+
+export const collectionRepository: ICollectionRepository =
+  new SupabaseCollectionRepository();
+
+export const processingRepository: IProcessingRepository =
+  new SupabaseProcessingRepository();
+
+export const analyticsRepository: IAnalyticsRepository =
+  new SupabaseAnalyticsRepository();
+
+export const notificationRepository: INotificationRepository =
+  new SupabaseNotificationRepository();
 
 export * from './interfaces/index.js';

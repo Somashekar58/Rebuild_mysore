@@ -47,7 +47,7 @@ app.get('/api/health', (req, res) => {
     status: 'online',
     service: 'ReBuild Mysore REST API',
     version: '1.0.0-hackathon',
-    database_layer: 'Repository Abstraction (Mock Active)',
+    database_layer: 'Supabase PostgreSQL',
     timestamp: new Date().toISOString()
   });
 });
